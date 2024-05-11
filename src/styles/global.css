@@ -1,26 +1,110 @@
 @import 'reset.css';
 
 @font-face {
-  font-family: 'NaN Jaune';
+  font-family: 'NaN Holo';
   font-display: fallback;
   font-weight: 100 900;
-  src: url('/assets/fonts/NaNJaune-Maxi-VF.woff2') format('woff2');
+  src: url('/assets/fonts/NaNHolo-Normal-VF.woff2') format('woff2');
 }
 
 :root {
-  --black: #212121;
   --white: #fff;
-  --font-heading: 'Nan Jaune';
-  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Open Sans', 'Helvetica Neue', sans-serif;
+  --black: #212121;
+  --yellow: #ffee70;
+  --mono1: #fcfcfc;
+  --mono2: #f8f8f8;
+  --mono3: #f3f3f3;
+  --mono4: #ededed;
+  --mono5: #e8e8e8;
+  --mono6: #e2e2e2;
+  --mono7: #dbdbdb;
+  --mono8: #c7c7c7;
+  --mono9: #8f8f8f;
+  --transparent: transparent;
+
+  --fg: var(--black);
+  --bg: var(--white);
+  --accent: var(--yellow);
+
+  --font-fallback: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-heading: 'NaN Holo', var(--font-fallback);
+  --font-body: system-ui, var(--font-fallback);
+
+  --text-xxl: 30px;
+  --text-xl: 24px;
+  --text-lg: 20px;
+  --text: 16px;
+  --text-sm: 14px;
+  --text-xs: 12px;
+  --text-xxs: 10px;
+
+  --kerning-lg: -0.33px;
+
+  --radius-xl: 14px;
+  --radius-lg: 10px;
+  --radius: 8px;
+  --radius-sm: 5px;
+  --radius-xs: 3px;
+
+  --transition-instant: 0ms;
+  --transition-fastest: 80ms;
+  --transition-fast: 100ms;
+  --transition-med: 160ms;
+  --transition-xx: 240ms;
+  --transition-xxl: 320ms;
+  --transition-long: 480ms;
+  --transition-slow: 1200ms;
+
+  --layer-overlay: 100;
+  --layer-portal: 200;
+  --layer-toasts: 300;
+  --layer-popover: 400;
+  --layer-dialog: 500;
+  --layer-tooltip: 600;
+
+  --page-width: 1400px;
+  --content-width: 840px;
+  --page-top: 128px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --mono1: #1a1a1a;
+    --mono2: #1c1c1c;
+    --mono3: #232323;
+    --mono4: #282828;
+    --mono5: #2e2e2e;
+    --mono6: #343434;
+    --mono7: #3e3e3e;
+    --mono8: #505050;
+    --mono9: #707070;
+
+    --fg: var(--white);
+    --bg: var(--black);
+  }
+}
+
+::selection {
+  background: var(--selection);
+  text-shadow: none;
+  -webkit-text-decoration-color: var(--mono9);
+  text-decoration-color: var(--mono9);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--mono5) transparent;
 }
 
 body {
   font-family: var(--font-body);
   min-height: 100vh;
   min-height: calc(var(--dvh, 1vh) * 100);
-  color: var(--white);
-  background: var(--black);
+  color: var(--fg);
+  background: var(--bg);
 }
 
 h1,
