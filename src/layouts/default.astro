@@ -1,0 +1,21 @@
+---
+const { title, description } = Astro.props;
+import "@styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:image" content="/assets/opengraph-image.jpg" />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <main id="app">
+      <slot />
+    </main>
+  </body>
+</html>
