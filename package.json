@@ -13,15 +13,20 @@
     "build-cf-types": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^10.2.5",
+    "@astrojs/cloudflare": "^10.2.6",
+    "@astrojs/partytown": "^2.1.0",
     "@astrojs/react": "^3.3.4",
+    "@react-three/fiber": "^8.16.6",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
+    "@types/three": "^0.164.0",
     "astro": "^4.8.2",
     "clsx": "^2.1.1",
     "cva": "npm:class-variance-authority@^0.7.0",
+    "framer-motion": "^11.1.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "three": "^0.164.1",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
