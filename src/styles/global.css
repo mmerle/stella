@@ -88,9 +88,9 @@
 }
 
 ::selection {
-  background: var(--selection);
+  color: var(--bg);
+  background: var(--fg);
   text-shadow: none;
-  -webkit-text-decoration-color: var(--mono9);
   text-decoration-color: var(--mono9);
 }
 
