@@ -7,6 +7,7 @@ import partytown from '@astrojs/partytown';
 export default defineConfig({
   site: process.env.WEBSITE_URL,
   output: 'server',
+  prefetch: true,
   adapter: cloudflare({
     imageService: 'passthrough',
     platformProxy: {
