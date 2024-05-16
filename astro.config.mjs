@@ -8,6 +8,7 @@ export default defineConfig({
   site: process.env.WEBSITE_URL,
   output: 'server',
   adapter: cloudflare({
+    imageService: 'passthrough',
     platformProxy: {
       enabled: true,
     },
