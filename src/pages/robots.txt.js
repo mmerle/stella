@@ -1,7 +1,7 @@
 const robotsTxt = `
   User-agent: *
   Allow: /
-  Sitemap: ${import.meta.env.WEBSITE_URL}/sitemap-index.xml
+  Sitemap: ${import.meta.env.SITE}/sitemap-index.xml
 `;
 
 export const GET = () => {
