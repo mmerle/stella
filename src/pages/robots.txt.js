@@ -1,8 +1,8 @@
 const robotsTxt = `
   User-agent: *
   Allow: /
-  Sitemap: ${new URL('sitemap-index.xml', import.meta.env.WEBSITE_URL).href}
-`.trim();
+  Sitemap: ${import.meta.env.WEBSITE_URL}/sitemap-index.xml
+`;
 
 export const GET = () => {
   return new Response(robotsTxt, {

@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.WEBSITE_URL,
+  site: import.meta.env.WEBSITE_URL,
   output: 'server',
   prefetch: {
     defaultStrategy: 'viewport',
