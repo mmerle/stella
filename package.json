@@ -16,6 +16,7 @@
     "@astrojs/cloudflare": "^10.2.6",
     "@astrojs/partytown": "^2.1.0",
     "@astrojs/react": "^3.3.4",
+    "@astrojs/sitemap": "^3.1.4",
     "@react-three/fiber": "^8.16.6",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
