@@ -1,0 +1,23 @@
+.button {
+  all: unset;
+  cursor: pointer;
+  padding: 8px 24px;
+  border-radius: var(--radius-full);
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+  }
+}
+
+.type {
+  &-primary {
+    background: var(--accent);
+    color: var(--black);
+  }
+
+  &-secondary {
+    background: var(--fg);
+    color: var(--bg);
+  }
+}
