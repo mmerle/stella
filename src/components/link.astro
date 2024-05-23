@@ -1,5 +1,5 @@
 ---
-const { href } = Astro.props;
+const { href, class: className } = Astro.props;
 ---
 
-<a {href} data-astro-prefetch><slot /></a>
+<a {href} {className} data-astro-prefetch><slot /></a>
