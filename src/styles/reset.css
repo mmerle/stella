@@ -28,17 +28,25 @@ img {
   max-block-size: 100%;
 }
 
-input,
+a,
 button,
+input,
+label,
 select,
 textarea {
   font: inherit;
+  color: inherit;
+  cursor: pointer;
 }
 
 a,
 button {
   touch-action: manipulation;
   cursor: revert;
+}
+
+a[class] {
+  text-decoration: none;
 }
 
 p,
