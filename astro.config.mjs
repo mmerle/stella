@@ -8,8 +8,10 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: process.env.PUBLIC_BASE_URL,
   output: 'server',
-  experimental: {
-    actions: true,
+  vite: {
+    ssr: {
+      external: ['node:async_hooks'],
+    },
   },
   prefetch: {
     defaultStrategy: 'viewport',
@@ -20,5 +22,8 @@ export default defineConfig({
       enabled: true,
     },
   }),
+  experimental: {
+    actions: true,
+  },
   integrations: [react(), sitemap()],
 });
