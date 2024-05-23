@@ -1,0 +1,42 @@
+---
+const LINKS = [
+  {
+    href: "https://github.com/mmerle/stella/generate",
+    label: "Use this template",
+  },
+  {
+    href: "https://github.com/mmerle/stella/",
+    label: "GitHub",
+  },
+];
+---
+
+<footer class="footer">
+  <span>stella</span>
+  <div>
+    {
+      LINKS.map((link, index) => (
+        <>
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link"
+          >
+            {link.label}
+          </a>
+          {index !== LINKS.length - 1 && <span>/</span>}
+        </>
+      ))
+    }
+  </div>
+</footer>
+
+<style>
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+import Link from "./link.astro";
+
+const LINKS = [
+  { href: "/", label: "home" },
+  { href: "/r3f", label: "r3f" },
+  { href: "/forms", label: "forms" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav>
+  <ul class="list">
+    {
+      LINKS.map((link) => (
+        <li class:list={["list-item", currentPath === link.href && "active"]}>
+          <Link href={link.href} class="link">
+            {link.label}
+          </Link>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  nav {
+    position: relative;
+    z-index: var(--layer-overlay);
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 24px;
+
+    &-item {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+
+      &.active::before {
+        --size: 10px;
+        content: "";
+        height: var(--size);
+        width: var(--size);
+        background: white;
+        position: absolute;
+        left: -16px;
+      }
+    }
+  }
+</style>

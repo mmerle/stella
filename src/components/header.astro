@@ -1,0 +1,29 @@
+---
+import Navigation from "./navigation.astro";
+import ThemeSwitcher from "./theme-switcher.astro";
+
+const currentSlug = Astro.url.pathname.replace(/^\//, "");
+---
+
+<header>
+  <div class="title">
+    <h1>Stella</h1>
+    <span>/</span>
+    <span>{currentSlug}</span>
+  </div>
+  <Navigation />
+  <ThemeSwitcher />
+</header>
+
+<style>
+  .title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    & > * {
+      all: unset;
+      display: revert;
+    }
+  }
+</style>

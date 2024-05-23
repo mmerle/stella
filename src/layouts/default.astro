@@ -1,6 +1,8 @@
 ---
 const { title, description } = Astro.props;
 import "@styles/global.css";
+import Header from "@components/header.astro";
+import Footer from "@components/footer.astro";
 ---
 
 <html lang="en">
@@ -11,15 +13,33 @@ import "@styles/global.css";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta property="og:image" content="/assets/opengraph-image.jpg" />
-    <title>{title}</title>
+    <title>{title ? `${title} — Stella` : `Stella`}</title>
   </head>
 
   <body>
-    <main id="app">
-      <slot />
-    </main>
+    <div id="app">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>
+
+<style>
+  #app {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: calc(var(--dvh, 1vh) * 100);
+  }
+
+  main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+</style>
 
 <script>
   // viewport
@@ -45,4 +65,38 @@ import "@styles/global.css";
   window.addEventListener("beforeunload", () => {
     window.removeEventListener("resize", onWindowResize);
   });
+
+  // lenis
+  import Lenis from "lenis";
+  const lenis = new Lenis({
+    lerp: 0.1,
+  });
+
+  function onRaf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(onRaf);
+  }
+
+  requestAnimationFrame(onRaf);
+
+  // persistent theme
+  const themeToggles = document.querySelectorAll('[name="theme-switcher"]');
+
+  function changeTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+  }
+
+  function saveTheme(theme) {
+    const d = new Date();
+    d.setTime(d.getTime() + 365 * 86400000);
+    document.cookie = `theme=${theme};expires=${d.toUTCString()}`;
+  }
+
+  function handleTheme(e: Event) {
+    const theme = (e.target as HTMLElement).id;
+    changeTheme(theme);
+    saveTheme(theme);
+  }
+
+  themeToggles.forEach((t) => t.addEventListener("change", handleTheme));
 </script>

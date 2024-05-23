@@ -1,10 +1,18 @@
 ---
 import Layout from "@layouts/default.astro";
+import Button from "@components/button/index.jsx";
 ---
 
-<Layout title="Stella" description="A star is born">
+<Layout description="A star is born">
   <div class="wrapper">
     <h1>Stella</h1>
+    <p>
+      <a href="https://astro.build" target="_blank" rel="noopener noreferrer"
+        >Astro</a
+      > starter template
+    </p>
+    <Button>Button</Button>
+    <Button type="secondary">Button</Button>
   </div>
 </Layout>
 
@@ -38,7 +46,7 @@ import Layout from "@layouts/default.astro";
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     padding: max(6vw, 1rem);
   }
