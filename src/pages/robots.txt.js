@@ -1,3 +1,5 @@
+// import.meta.env.SITE is set to the site option in astro.config
+
 const robotsTxt = `
   User-agent: *
   Allow: /

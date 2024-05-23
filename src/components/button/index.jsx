@@ -1,6 +1,6 @@
 import s from './button.module.css';
 import { cva } from 'cva';
-import { useRef } from 'preact/hooks';
+import { useRef } from 'react';
 
 const variants = cva(s.button, {
   variants: {
