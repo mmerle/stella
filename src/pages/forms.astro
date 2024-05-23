@@ -1,0 +1,75 @@
+---
+import Layout from "@layouts/default.astro";
+---
+
+<Layout title="Forms">
+  <div class="inner">
+    <h1>Forms</h1>
+    <form class="form">
+      <label>
+        Name:
+        <input type="text" name="name" required />
+      </label>
+      <span class="error-message" data-field="name"></span>
+      <label>
+        Email:
+        <input type="email" name="email" required />
+      </label>
+      <span class="error-message" data-field="email"></span>
+      <label>
+        Message:
+        <textarea name="message" required></textarea>
+      </label>
+      <span class="error-message" data-field="message"></span>
+      <button type="submit">Send Email</button>
+    </form>
+  </div>
+</Layout>
+
+<style>
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .error-message {
+      color: red;
+    }
+  }
+</style>
+
+<script>
+  import { actions, isInputError } from "astro:actions";
+
+  const form = document.querySelector(".form") as HTMLFormElement;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const { data, error } = await actions.sendEmail.safe(formData);
+
+    if (data) {
+      form.reset();
+      alert(data);
+    }
+
+    if (error && isInputError(error)) {
+      for (const field in error.fields) {
+        const errorMessage = document.querySelector(
+          `.error-message[data-field="${field}"]`,
+        );
+        if (errorMessage) {
+          errorMessage.textContent = error.fields[field];
+        }
+      }
+    }
+  });
+</script>
