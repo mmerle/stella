@@ -3,6 +3,7 @@
   cursor: pointer;
   padding: 8px 24px;
   border-radius: var(--radius-full);
+  text-transform: uppercase;
 
   &:disabled {
     cursor: not-allowed;
