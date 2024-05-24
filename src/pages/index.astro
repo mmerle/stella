@@ -1,18 +1,20 @@
 ---
 import Layout from "@layouts/default.astro";
-import Button from "@components/button/index.jsx";
 ---
 
 <Layout description="A star is born">
   <div class="wrapper">
-    <h1 class="text-center">stella<br /> starter</h1>
-    <p>
-      <a href="https://astro.build" target="_blank" rel="noopener noreferrer"
-        >Astro</a
-      > starter template
+    <h1 class="text-center">stella <br /> starter</h1>
+    <p class="desc">
+      <a
+        href="https://astro.build"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link"
+      >
+        Astro
+      </a> starter template.
     </p>
-    <Button>Button</Button>
-    <Button type="secondary">Button</Button>
   </div>
 </Layout>
 
@@ -22,22 +24,8 @@ import Button from "@components/button/index.jsx";
     text-transform: uppercase;
   }
 
-  p {
-    font-size: max(0.8vw, 1.125rem);
-    font-weight: 500;
-    letter-spacing: -0.125px;
-
-    a {
-      text-decoration: none;
-      text-underline-offset: 0.25rem;
-      color: inherit;
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        text-decoration: underline;
-        opacity: 0.8;
-      }
-    }
+  .desc {
+    padding-block: 2.5vw 0;
   }
 
   .wrapper {
