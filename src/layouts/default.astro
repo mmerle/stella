@@ -1,6 +1,7 @@
 ---
 const { title, description } = Astro.props;
 import "@styles/global.css";
+import "@styles/utils.css";
 import Header from "@components/header.astro";
 import Footer from "@components/footer.astro";
 ---
@@ -80,7 +81,13 @@ import Footer from "@components/footer.astro";
   requestAnimationFrame(onRaf);
 
   // persistent theme
-  const themeToggles = document.querySelectorAll('[name="theme-switcher"]');
+  const themes = ["light", "dark", "system"];
+  const themeSwitcher = document.querySelector('[name="themeSwitcher"]');
+  const currentTheme =
+    document.cookie.replace(
+      /(?:(?:^|.*;\s*)theme\s*\=\s*([^;]*).*$)|^.*$/,
+      "$1",
+    ) || "system";
 
   function changeTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
@@ -92,11 +99,16 @@ import Footer from "@components/footer.astro";
     document.cookie = `theme=${theme};expires=${d.toUTCString()}`;
   }
 
-  function handleTheme(e: Event) {
-    const theme = (e.target as HTMLElement).id;
-    changeTheme(theme);
-    saveTheme(theme);
+  function cycleTheme() {
+    const currentIndex = themes.indexOf(
+      document.documentElement.getAttribute("data-theme"),
+    );
+    const nextTheme = themes[(currentIndex + 1) % themes.length];
+    changeTheme(nextTheme);
+    saveTheme(nextTheme);
   }
 
-  themeToggles.forEach((t) => t.addEventListener("change", handleTheme));
+  themeSwitcher?.addEventListener("click", cycleTheme);
+
+  changeTheme(currentTheme);
 </script>

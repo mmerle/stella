@@ -1,20 +1,16 @@
 ---
-const themes = ["light", "dark", "system"];
 const theme = Astro.cookies.get("theme")?.value ?? "system";
 ---
 
-<div class="theme-switcher">
-  {
-    themes.map((t) => (
-      <label>
-        {t}
-        <input
-          id={t}
-          type="radio"
-          checked={theme === t}
-          name="theme-switcher"
-        />
-      </label>
-    ))
+<div class="theme-switcher" name="themeSwitcher"></div>
+
+<style>
+  .theme-switcher {
+    --size: 20px;
+    height: var(--size);
+    width: var(--size);
+    background: var(--fg);
+    cursor: pointer;
+    display: inline-block;
   }
-</div>
+</style>
