@@ -1,4 +1,5 @@
 ---
+import { GridOverlayToggle } from "@components/grid-overlay/index.jsx";
 const LINKS = [
   {
     href: "https://github.com/mmerle/stella/generate",
@@ -12,7 +13,8 @@ const LINKS = [
 ---
 
 <footer class="footer">
-  <span>Stella</span>
+  <GridOverlayToggle client:load>Shift + G</GridOverlayToggle>
+
   <div>
     {
       LINKS.map((link, index) => (
@@ -37,6 +39,10 @@ const LINKS = [
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px;
+    padding: var(--grid-margin);
+  }
+
+  .toggle-grid {
+    cursor: pointer;
   }
 </style>

@@ -49,7 +49,7 @@
 
   --kerning-lg: -0.33px;
 
-  --grid-columns: 12;
+  --grid-columns: 4;
   --grid-gutter: 20px;
   --grid-margin: 20px;
   --grid-width: calc(100vw - var(--grid-margin) * 2);
@@ -83,6 +83,14 @@
   --page-top: 128px;
 
   accent-color: var(--accent);
+
+  @media (min-width: 768px) {
+    --grid-columns: 8;
+  }
+
+  @media (min-width: 1024px) {
+    --grid-columns: 12;
+  }
 
   @media (min-width: 1440px) {
     --grid-gutter: 1.4vw;

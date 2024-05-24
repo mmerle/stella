@@ -1,0 +1,39 @@
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+
+  &[data-visible='true'] {
+    opacity: 1;
+  }
+}
+
+.container {
+  padding-inline: var(--grid-margin);
+  height: 100%;
+  width: 100%;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  gap: var(--grid-gutter);
+  height: 100%;
+  width: 100%;
+}
+
+.col {
+  background: hotpink;
+  opacity: 0.05;
+}
+
+.toggle {
+  appearance: none;
+  border: none;
+  background: var(--transparent);
+  padding: 0;
+  cursor: pointer;
+}
