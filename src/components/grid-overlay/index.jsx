@@ -1,49 +1,46 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useMemo, useCallback } from 'react';
+import { useWindowSize } from '@hooks/use-window-size';
 import useStore from '@libs/store';
-import s from './grid-overlay.module.css';
 import cn from 'clsx';
+import s from './grid-overlay.module.css';
 
 export default function GridOverlay() {
   const { isGridOverlayVisible, toggleGridOverlayVisibility } = useStore();
-  const [columns, setColumns] = useState(0);
+  const { width: windowWidth, height: windowHeight } = useWindowSize();
 
-  useEffect(() => {
-    const handleResize = () => {
-      const columnsValue = getComputedStyle(document.documentElement).getPropertyValue(
-        '--grid-columns',
+  const columns = useMemo(() => {
+    if (typeof window !== 'undefined') {
+      return parseInt(
+        getComputedStyle(document.documentElement).getPropertyValue('--grid-columns'),
       );
-      setColumns(parseInt(columnsValue, 10) || 0);
-    };
+    }
+    return 0;
+  }, [windowWidth, windowHeight]);
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'G') {
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.key === 'G') {
         toggleGridOverlayVisibility();
       }
-    };
+    },
+    [toggleGridOverlayVisibility],
+  );
 
+  useLayoutEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
-
     return () => {
-      window.removeEventListener('resize', handleResize);
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [toggleGridOverlayVisibility]);
-
-  const createColumns = (num) => {
-    const columnDivs = [];
-    for (let i = 0; i < num; i++) {
-      columnDivs.push(<div key={i} className={s.col}></div>);
-    }
-    return columnDivs;
-  };
+  }, [handleKeyDown]);
 
   return (
     <div className={s.overlay} data-visible={isGridOverlayVisible}>
       <div className={s.container}>
-        <div className={s.row}>{createColumns(columns)}</div>
+        <div className={cn(s.row, s.debugger)}>
+          {Array.from({ length: columns }).map((_, key) => (
+            <span key={key} className={s.col}></span>
+          ))}
+        </div>
       </div>
     </div>
   );
