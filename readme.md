@@ -18,11 +18,11 @@ astro starter
 - SEO ready (auto-generated sitemap and robots.txt)
 - Email forms with Astro Actions + Resend
 
-- ? image optimization
-- ? cms
-- ? satori
-- ? ecomm
-- ? persistant theme support without flash
+? image optimization
+? cms
+? satori
+? ecomm
+? persistant theme support without flash
 
 ## astro integrations
 
