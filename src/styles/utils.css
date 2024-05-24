@@ -1,0 +1,48 @@
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  border-width: 0;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+}
+
+.grid-gap {
+  grid-gap: var(--grid-gutter);
+}
+
+.grid-padding {
+  padding-inline: var(--grid-margin);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.fit-content {
+  width: fit-content;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.aspect-video {
+  aspect-ratio: 16/9;
+}
+
+.aspect-square {
+  aspect-ratio: 1;
+}
