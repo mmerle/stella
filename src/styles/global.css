@@ -4,14 +4,14 @@
   font-family: 'Neue Montreal';
   font-display: swap;
   font-weight: 500;
-  src: url('/assets/fonts/NeueMontreal-Medium.woff2') format('woff2');
+  src: url('/fonts/NeueMontreal-Medium.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Neue Montreal';
   font-display: swap;
   font-weight: 700;
-  src: url('/assets/fonts/NeueMontreal-Bold.woff2') format('woff2');
+  src: url('/fonts/NeueMontreal-Bold.woff2') format('woff2');
 }
 
 :root {
