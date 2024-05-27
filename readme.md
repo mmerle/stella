@@ -13,10 +13,13 @@ astro starter
 - CSS tooling:
   - postcss (sass like nesting, custom media queries + ranges)
   - reset
-  - theme support
+  - utilities
+  - themes
   - base style system
 - SEO ready (auto-generated sitemap and robots.txt)
 - Email forms with Astro Actions + Resend
+- Debug tools:
+  - grid overlay
 
 ? image optimization
 ? cms
