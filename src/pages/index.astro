@@ -1,5 +1,7 @@
 ---
 import Layout from "@layouts/default.astro";
+import { Image } from "astro:assets";
+import localImage from "@assets/the-inferno-canto.jpg";
 ---
 
 <Layout description="A star is born">
@@ -15,6 +17,17 @@ import Layout from "@layouts/default.astro";
         Astro
       </a> starter template.
     </p>
+
+    <div class="poster">
+      <Image
+        src={localImage}
+        alt="Astro img"
+        loading="lazy"
+        quality="mid"
+        widths={[240, 540, 720, localImage.width]}
+        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${localImage.width}px`}
+      />
+    </div>
   </div>
 </Layout>
 
@@ -25,7 +38,18 @@ import Layout from "@layouts/default.astro";
   }
 
   .desc {
-    padding-block: 2.5vw 0;
+    padding-block: 2.5vw;
+  }
+
+  .poster {
+    aspect-ratio: 3 / 1;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
   }
 
   .wrapper {
