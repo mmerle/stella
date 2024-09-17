@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
-// import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 
 // https://astro.build/config
@@ -22,8 +21,5 @@ export default defineConfig({
       enabled: true,
     },
   }),
-  experimental: {
-    actions: true,
-  },
   integrations: [react(), sitemap()],
 });
