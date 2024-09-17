@@ -1,5 +1,5 @@
 ---
-import Layout from "@layouts/default.astro";
+import Layout from '@layouts/default.astro';
 ---
 
 <Layout title="Forms">
@@ -47,11 +47,11 @@ import Layout from "@layouts/default.astro";
 </style>
 
 <script>
-  import { actions, isInputError } from "astro:actions";
+  import { actions, isInputError } from 'astro:actions';
 
-  const form = document.querySelector(".form") as HTMLFormElement;
+  const form = document.querySelector('.form') as HTMLFormElement;
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
     const { data, error } = await actions.sendEmail.safe(formData);
@@ -63,9 +63,7 @@ import Layout from "@layouts/default.astro";
 
     if (error && isInputError(error)) {
       for (const field in error.fields) {
-        const errorMessage = document.querySelector(
-          `.error-message[data-field="${field}"]`,
-        );
+        const errorMessage = document.querySelector(`.error-message[data-field="${field}"]`);
         if (errorMessage) {
           errorMessage.textContent = error.fields[field];
         }
