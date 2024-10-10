@@ -6,15 +6,8 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "paths": {
-      "@actions/*": ["src/actions/*"],
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@libs/*": ["src/libs/*"],
-      "@styles/*": ["src/styles/*"],
-      "@utils/*": ["src/utils/*"]
+      "@*": ["./src/*"]
     },
-    "exclude": ["node_modules", "dist"]
+    "exclude": ["node_modules", "dist", "public"]
   }
 }
