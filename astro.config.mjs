@@ -9,7 +9,14 @@ export default defineConfig({
   output: 'server',
   vite: {
     ssr: {
-      external: ['node:async_hooks'],
+      external: [
+        'node:buffer',
+        'node:path',
+        'node:fs',
+        'node:os',
+        'node:crypto',
+        'node:async_hooks',
+      ],
     },
   },
   prefetch: {
