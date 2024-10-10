@@ -6,7 +6,7 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
   site: process.env.PUBLIC_BASE_URL,
-  output: 'server',
+  output: 'hybrid',
   vite: {
     ssr: {
       external: [

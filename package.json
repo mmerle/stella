@@ -35,8 +35,10 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241004.0",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
+    "postcss-media-minmax": "^5.0.0",
     "postcss-nested": "^6.2.0",
-    "postcss-preset-env": "^10.0.6",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "wrangler": "^3.80.2"

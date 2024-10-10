@@ -12,7 +12,7 @@ astro starter
 - React tooling:
   - [cva](https://github.com/joe-bell/cva) + [clsx](https://github.com/lukeed/clsx)
 - CSS tooling:
-  - postcss (sass like nesting, custom media queries + ranges)
+  - postcss
   - reset
   - utilities
   - themes
@@ -32,5 +32,4 @@ astro starter
 
 - [react](https://github.com/withastro/astro/tree/main/packages/integrations/react/)
 - [cloudflare](https://github.com/withastro/adapters/tree/main/packages/cloudflare/)
-- [partytown](https://github.com/withastro/astro/tree/main/packages/integrations/partytown/)
 - [sitemap](https://github.com/withastro/astro/tree/main/packages/integrations/sitemap/)
