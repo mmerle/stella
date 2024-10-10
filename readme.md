@@ -8,6 +8,7 @@ astro starter
 - [react-three-fiber](https://github.com/pmndrs/react-three-fiber)
 - [framer-motion](https://github.com/framer/motion)
 - [lenis](https://github.com/darkroomengineering/lenis)
+- [font optimization](https://github.com/rishi-raj-jain/astro-font)
 - React tooling:
   - [cva](https://github.com/joe-bell/cva) + [clsx](https://github.com/lukeed/clsx)
 - CSS tooling:
