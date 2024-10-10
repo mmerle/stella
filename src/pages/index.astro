@@ -1,19 +1,14 @@
 ---
-import Layout from "@layouts/default.astro";
-import { Image } from "astro:assets";
-import localImage from "@assets/the-inferno-canto.jpg";
+import Layout from '@layouts/default.astro';
+import { Image } from 'astro:assets';
+import localImage from '@assets/the-inferno-canto.jpg';
 ---
 
 <Layout description="A star is born">
   <div class="wrapper">
     <h1 class="text-center">stella <br /> starter</h1>
     <p class="desc">
-      <a
-        href="https://astro.build"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="link"
-      >
+      <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="link">
         Astro
       </a> starter template.
     </p>
@@ -33,7 +28,7 @@ import localImage from "@assets/the-inferno-canto.jpg";
 
 <style>
   h1 {
-    font: 700 normal clamp(10px, 8.33vw, 160px) / 0.8 "Neue Montreal";
+    font: 700 normal clamp(10px, 8.33vw, 160px) / 0.8 var(--font-heading);
     text-transform: uppercase;
   }
 

@@ -1,19 +1,5 @@
 @import 'reset.css';
 
-@font-face {
-  font-family: 'Neue Montreal';
-  font-display: swap;
-  font-weight: 500;
-  src: url('/fonts/NeueMontreal-Medium.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Neue Montreal';
-  font-display: swap;
-  font-weight: 700;
-  src: url('/fonts/NeueMontreal-Bold.woff2') format('woff2');
-}
-
 :root {
   --white: #fff;
   --black: #171717;
@@ -36,8 +22,8 @@
 
   --font-fallback: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --font-heading: 'Neue Montreal', var(--font-fallback);
-  --font-body: system-ui, var(--font-fallback);
+  --font-heading: var(--helvetica-now), var(--font-fallback);
+  --font-body: var(--helvetica-now), var(--font-fallback);
 
   --text-xxl: 30px;
   --text-xl: 24px;
@@ -53,7 +39,9 @@
   --grid-gutter: 20px;
   --grid-margin: 20px;
   --grid-width: calc(100vw - var(--grid-margin) * 2);
-  --grid-column-width: calc((var(--grid-width) - ((var(--grid-columns) - 1) * var(--grid-gutter))) / var(--grid-columns));
+  --grid-column-width: calc(
+    (var(--grid-width) - ((var(--grid-columns) - 1) * var(--grid-gutter))) / var(--grid-columns)
+  );
 
   --radius-xl: 14px;
   --radius-lg: 10px;
@@ -162,12 +150,11 @@
 }
 
 body {
-  font-family: var(--font-body);
   min-height: 100vh;
   min-height: calc(var(--dvh, 1vh) * 100);
   color: var(--fg);
   background: var(--bg);
-  font: 500 normal clamp(16px, 1.11vw, 21px) / normal 'Neue Montreal';
+  font: 500 normal clamp(16px, 1.11vw, 21px) / normal var(--font-body);
   overflow-x: hidden;
 }
 
@@ -196,7 +183,6 @@ button:focus-visible {
 
 /* lenis */
 @media (pointer: fine) {
-
   html.lenis,
   html.lenis body {
     height: auto;

@@ -1,10 +1,11 @@
 ---
 const { title, description } = Astro.props;
-import "@styles/global.css";
-import "@styles/utils.css";
-import Header from "@components/header.astro";
-import Footer from "@components/footer.astro";
-import GridOverlay from "@components/grid-overlay/index.jsx";
+import '@styles/global.css';
+import '@styles/utils.css';
+import Header from '@components/header.astro';
+import Footer from '@components/footer.astro';
+import GridOverlay from '@components/grid-overlay/index.jsx';
+import { AstroFont } from 'astro-font';
 ---
 
 <html lang="en-CA">
@@ -15,6 +16,25 @@ import GridOverlay from "@components/grid-overlay/index.jsx";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta property="og:image" content="/assets/opengraph-image.jpg" />
+    <AstroFont
+      config={[
+        {
+          name: 'Helvetica Now',
+          src: [
+            {
+              style: 'normal',
+              weight: '50 1000',
+              path: '/public/fonts/HelveticaNowVar.woff2',
+            },
+          ],
+          preload: true,
+          display: 'swap',
+          selector: 'html',
+          fallback: 'sans-serif',
+          cssVariable: 'helvetica-now',
+        },
+      ]}
+    />
     <title>{title ? `${title} — Stella` : `Stella`}</title>
   </head>
 
@@ -49,30 +69,24 @@ import GridOverlay from "@components/grid-overlay/index.jsx";
 <script>
   // viewport
   function onWindowResize() {
+    document.documentElement.style.setProperty('--vw', window.innerWidth * 0.01 + 'px');
+    document.documentElement.style.setProperty('--dvh', window.innerHeight * 0.01 + 'px');
     document.documentElement.style.setProperty(
-      "--vw",
-      window.innerWidth * 0.01 + "px",
+      '--svh',
+      document.documentElement.clientHeight * 0.01 + 'px',
     );
-    document.documentElement.style.setProperty(
-      "--dvh",
-      window.innerHeight * 0.01 + "px",
-    );
-    document.documentElement.style.setProperty(
-      "--svh",
-      document.documentElement.clientHeight * 0.01 + "px",
-    );
-    document.documentElement.style.setProperty("--lvh", "1vh");
+    document.documentElement.style.setProperty('--lvh', '1vh');
   }
 
-  window.addEventListener("resize", onWindowResize);
+  window.addEventListener('resize', onWindowResize);
   onWindowResize();
 
-  window.addEventListener("beforeunload", () => {
-    window.removeEventListener("resize", onWindowResize);
+  window.addEventListener('beforeunload', () => {
+    window.removeEventListener('resize', onWindowResize);
   });
 
   // lenis
-  import Lenis from "lenis";
+  import Lenis from 'lenis';
   const lenis = new Lenis({
     lerp: 0.07,
   });
@@ -85,16 +99,13 @@ import GridOverlay from "@components/grid-overlay/index.jsx";
   requestAnimationFrame(onRaf);
 
   // persistent theme
-  const themes = ["light", "dark", "system"];
+  const themes = ['light', 'dark', 'system'];
   const themeSwitcher = document.querySelector('[name="themeSwitcher"]');
   const currentTheme =
-    document.cookie.replace(
-      /(?:(?:^|.*;\s*)theme\s*\=\s*([^;]*).*$)|^.*$/,
-      "$1",
-    ) || "system";
+    document.cookie.replace(/(?:(?:^|.*;\s*)theme\s*\=\s*([^;]*).*$)|^.*$/, '$1') || 'system';
 
   function changeTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.setAttribute('data-theme', theme);
   }
 
   function saveTheme(theme) {
@@ -104,15 +115,13 @@ import GridOverlay from "@components/grid-overlay/index.jsx";
   }
 
   function cycleTheme() {
-    const currentIndex = themes.indexOf(
-      document.documentElement.getAttribute("data-theme"),
-    );
+    const currentIndex = themes.indexOf(document.documentElement.getAttribute('data-theme'));
     const nextTheme = themes[(currentIndex + 1) % themes.length];
     changeTheme(nextTheme);
     saveTheme(nextTheme);
   }
 
-  themeSwitcher?.addEventListener("click", cycleTheme);
+  themeSwitcher?.addEventListener('click', cycleTheme);
 
   changeTheme(currentTheme);
 </script>
