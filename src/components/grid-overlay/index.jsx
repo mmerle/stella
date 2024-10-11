@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo, useCallback } from 'react';
 import { useWindowSize } from '@hooks/use-window-size';
-import useStore from '@libs/store';
+import useStore from '@lib/store';
 import cn from 'clsx';
 import s from './grid-overlay.module.css';
 

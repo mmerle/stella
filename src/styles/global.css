@@ -36,7 +36,7 @@
   --kerning-lg: -0.33px;
 
   --grid-columns: 4;
-  --grid-gutter: 20px;
+  --grid-gutter: 12px;
   --grid-margin: 20px;
   --grid-width: calc(100vw - var(--grid-margin) * 2);
   --grid-column-width: calc(
@@ -74,6 +74,7 @@
 
   @media (min-width: 768px) {
     --grid-columns: 8;
+    --grid-gutter: 20px;
   }
 
   @media (min-width: 1024px) {

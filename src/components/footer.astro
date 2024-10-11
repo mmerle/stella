@@ -1,30 +1,25 @@
 ---
-import { GridOverlayToggle } from "@components/grid-overlay/index.jsx";
+import { GridOverlayToggle } from '@components/grid-overlay/index.jsx';
 const LINKS = [
   {
-    href: "https://github.com/mmerle/stella/generate",
-    label: "Use this template",
+    href: 'https://github.com/mmerle/stella/generate',
+    label: 'Use this template',
   },
   {
-    href: "https://github.com/mmerle/stella/",
-    label: "GitHub",
+    href: 'https://github.com/mmerle/stella/',
+    label: 'GitHub',
   },
 ];
 ---
 
 <footer class="footer">
-  <GridOverlayToggle client:load>Shift + G</GridOverlayToggle>
+  <GridOverlayToggle client:idle>Shift + G</GridOverlayToggle>
 
   <div>
     {
       LINKS.map((link, index) => (
         <>
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link"
-          >
+          <a href={link.href} target="_blank" rel="noopener noreferrer" class="link">
             {link.label}
           </a>
           {index !== LINKS.length - 1 && <span>/</span>}
