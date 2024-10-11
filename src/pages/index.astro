@@ -17,7 +17,7 @@ import localImage from '@assets/the-inferno-canto.jpg';
       <Image
         src={localImage}
         alt="Astro img"
-        loading="lazy"
+        loading="eager"
         quality="mid"
         widths={[240, 540, 720, localImage.width]}
         sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${localImage.width}px`}

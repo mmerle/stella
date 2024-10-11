@@ -2,10 +2,22 @@ import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
+import sanity from '@sanity/astro';
 import autoprefixer from 'autoprefixer';
 import postcssNested from 'postcss-nested';
 import postcssMediaMinMax from 'postcss-media-minmax';
 import cssnano from 'cssnano';
+import { loadEnv } from 'vite';
+
+// Loading environment variables from .env files
+// https://docs.astro.build/en/guides/configuring-astro/#environment-variables
+const { PUBLIC_SANITY_STUDIO_PROJECT_ID, PUBLIC_SANITY_STUDIO_DATASET, PUBLIC_SANITY_STUDIO_PATH } =
+  loadEnv(import.meta.env.MODE, process.cwd(), '');
+import { defineConfig } from 'astro/config';
+
+const projectId = PUBLIC_SANITY_STUDIO_PROJECT_ID;
+const dataset = PUBLIC_SANITY_STUDIO_DATASET;
+const studioBasePath = PUBLIC_SANITY_STUDIO_PATH;
 
 // https://astro.build/config
 export default defineConfig({
@@ -42,7 +54,16 @@ export default defineConfig({
       enabled: true,
     },
   }),
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap(),
+    sanity({
+      projectId,
+      dataset,
+      studioBasePath,
+      useCdn: false,
+    }),
+  ],
   devToolbar: {
     enabled: false,
   },

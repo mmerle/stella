@@ -18,17 +18,23 @@
     "@astrojs/sitemap": "^3.2.0",
     "@react-three/drei": "^9.114.3",
     "@react-three/fiber": "^8.17.10",
+    "@sanity/astro": "^3.1.6",
+    "@sanity/client": "^6.22.1",
+    "@sanity/vision": "^3.60.0",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
     "astro": "^4.15.12",
     "astro-font": "^0.1.81",
+    "astro-portabletext": "^0.10.0",
     "clsx": "^2.1.1",
     "cva": "npm:class-variance-authority@^0.7.0",
     "framer-motion": "^11.11.7",
+    "groq": "^3.60.0",
     "lenis": "^1.1.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "resend": "^4.0.0",
+    "sanity": "^3.60.0",
     "three": "^0.169.0",
     "typescript": "^5.6.3",
     "zustand": "5.0.0-rc.2"
@@ -41,6 +47,7 @@
     "postcss-nested": "^6.2.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
+    "vite": "^5.4.8",
     "wrangler": "^3.80.2"
   }
 }

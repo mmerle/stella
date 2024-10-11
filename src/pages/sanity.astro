@@ -1,0 +1,11 @@
+---
+import Layout from '@layouts/default.astro';
+import { sanityClient } from 'sanity:client';
+
+const { title } = await sanityClient.fetch(`*[_type == "test"][0]{title} `);
+---
+
+<Layout title="Sanity">
+  <h1>Sanity</h1>
+  <p>{title}</p>
+</Layout>

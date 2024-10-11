@@ -1,10 +1,11 @@
 ---
-import Link from "./link.astro";
+import Link from './link.astro';
 
 const LINKS = [
-  { href: "/", label: "home" },
-  { href: "/r3f", label: "r3f" },
-  { href: "/forms", label: "forms" },
+  { href: '/', label: 'home' },
+  { href: '/r3f', label: 'r3f' },
+  { href: '/forms', label: 'forms' },
+  { href: '/sanity', label: 'sanity' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -14,7 +15,7 @@ const currentPath = Astro.url.pathname;
   <ul class="list">
     {
       LINKS.map((link) => (
-        <li class:list={["list-item", currentPath === link.href && "active"]}>
+        <li class:list={['list-item', currentPath === link.href && 'active']}>
           <Link href={link.href} class="link">
             {link.label}
           </Link>
@@ -39,10 +40,11 @@ const currentPath = Astro.url.pathname;
       position: relative;
       display: inline-flex;
       align-items: center;
+      line-height: 1.2;
 
       &.active::before {
         --size: 10px;
-        content: "";
+        content: '';
         height: var(--size);
         width: var(--size);
         background: var(--fg);
